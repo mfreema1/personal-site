@@ -12,7 +12,7 @@ class App extends Component {
         <BarTop />
         <Splash />
         <Banner text="About"/>
-        <BannerHeader text="Contact"/>
+        <BannerHeader text="Say Hi"/>
       </div>
     );
   }
@@ -30,6 +30,15 @@ class BarTop extends Component {
   }
 }
 
+class CircularImage extends Component {
+  render() {
+    return (
+      <div className={classnames("circle_crop", "shadow")}>
+        <img src={this.props.source} className={classnames("circle_image")}/>
+      </div>
+    )
+  }
+}
 
 class BarItem extends Component {
   render() {
@@ -94,47 +103,33 @@ class BannerParagraphRight extends Component {
 class Splash extends Component {
   render() {
     return (
-      <div className="splash" id="splash">
-        <img src="primary_splash.jpg"/>
+      <div>
+        <img className="splash" src="primary_splash.jpg"/>
       </div>
     );
   }
 }
 
-
-//jQuery from here on out
 $(window).on('scroll', function() {
   var y_scroll_pos = window.pageYOffset;
   var scroll_pos_test = 750;
-  //var about_blocks_sliding_right = document.getElementById('test');
   console.log(window.pageYOffset);
-
-  if(y_scroll_pos > scroll_pos_test) {
-    console.log("tick")
-    //about_blocks_sliding_right.style.visibility = 'hidden';
-  }
-  else{
-    //about_blocks_sliding_right.style.visibility = 'visible';
-  }
 });
 
-//handle setting all of our click events on the tabs.  This can only be done after the document
-//is ready and all of the HTML elements have already been created.
-//can refactor this from here on to get rid of ids and replace them all with classnames
 $(document).ready(function() {
     console.log(document.getElementsByClassName("bar_item"))
-  $('#first_tab').click(function(e) {
-    //scroll to the top of the poster
+  $('.first_tab').click(function(e) {
+    console.log('tick1');
 
   });
-  $('#second_tab').click(function(e) {
+  $('.second_tab').click(function(e) {
     //scroll to the top of the about section
     var about_section = document.getElementById('about_section');
     $('html, body').animate( {
       scrollTop: $("#about_section").offset().top
     }, 1000);
   });
-  $('#third_tab').click(function(e) {
+  $('.third_tab').click(function(e) {
     //scroll to the top of the contact section
     console.log('tick3');
   });
