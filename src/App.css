@@ -15,7 +15,7 @@
   background-color: white;
   text-align: right;
   height: 50px;
-  box-shadow: 10px 10px 10px #000;
+  position: relative;
 }
 
 .bar_item {
@@ -58,19 +58,24 @@
 .circle_crop {
   height: 250px;
   width: 250px;
+  position: relative;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .circle_image {
-  display: inline;
+  display: block;
   margin: 0 auto;
   height: 100%;
-  width: auto;
+  min-width: 100%;
 }
 
 .shadow {
-  box-shadow: 10px 10px 8px #999;
+  box-shadow: 10px 10px 8px #adadad;
+}
+
+.inlined {
+  display: inline-block;
 }
 
 #rightMovingSlide {
