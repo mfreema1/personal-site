@@ -10,105 +10,77 @@ class App extends Component {
     return (
       <div className="App">
         <BarTop />
-        <Splash />
-        <Banner text="About"/>
-        <BannerHeader text="Say Hi"/>
+        <Splash source="splash_candidate_4_rev_1.jpg" classes="welcome_splash"/>
+        <Banner text="About" classes="about_section"/>
+        <Banner text="Say Hi" classes="say_hi_section"/>
       </div>
     );
   }
 }
 
-class BarTop extends Component {
-  render() {
-    return (
-      <div className="bar_top">
-        <BarItem text="Welcome" classes="first_tab"/>
-        <BarItem text="About" classes="second_tab"/>
-        <BarItem text="Say Hi" classes={classnames("right_margin", "third_tab")}/>
-      </div>
-    )
-  }
-}
+const BarTop = (props) => (
+  <div className="bar_top">
+    <BarItem text="Welcome" classes="first_tab"/>
+    <BarItem text="About" classes="second_tab"/>
+    <BarItem text="Say Hi" classes={classnames("right_margin", "third_tab")}/>
+  </div>
+)
 
-class CircularImage extends Component {
-  render() {
-    return (
-      <div className={classnames("circle_crop", "shadow")}>
-        <img src={this.props.source} className={classnames("circle_image")}/>
-      </div>
-    )
-  }
-}
+const ContentBox = (props) => (
+  <div className={classnames("inlined")}>
+    <p>Placeholding text</p>
+    <CircularImage className= "shadow" source={"placeholder.png"}/>
+  </div>
+)
 
-class BarItem extends Component {
-  render() {
-    return(
-      <div className={classnames("bar_item", "heavy_text", this.props.classes)}>{this.props.text}</div>
-    )
-  }
-}
+const CircularImage = (props) => (
+  <div className={classnames("circle_crop")}>
+    <img src={props.source} className="circle_image"/>
+  </div>
+)
 
-class Banner extends Component {
-  render() {
-    return (
-      <div id="about_section">
-        <BannerHeader text={this.props.text}/>
-        {/*
-          Replace these id's with classnames
-          */}
-        <BannerParagraphLeft text={about_placeholder_text} id='first_box'/>
-        <BannerParagraphRight text={about_placeholder_text} id='second_box'/>
-        <BannerParagraphLeft text={about_placeholder_text} id='third_box'/>
-      </div>
-    );
-  }
-}
+const BarItem = (props) => (
+  <div className={classnames("bar_item", "heavy_text", props.classes)}>{props.text}</div>
+)
 
-class BannerHeader extends Component {
-  render() {
-    return (
-      <div className={classnames("heavy_text", "section_header", "right_margin")}>
-        <p>{this.props.text}</p>
-      </div>
-    );
-  }
-}
+const Banner = (props) => (
+  <div className={props.classes}>
+    <BannerHeader text={props.text}/>
+    <BannerParagraphLeft text={about_placeholder_text}/>
+    <BannerParagraphRight text={about_placeholder_text}/>
+    <BannerParagraphLeft text={about_placeholder_text}/>
+  </div>
+)
 
-class BannerParagraphLeft extends Component {
-  render() {
-    return (
-      <div className="shadowedBoxContainer">
-        <div className="bannerParagraphLeft">
-          <p>{this.props.text}</p>
-          <img src="placeholder.png"></img>
-        </div>
-      </div>
-    );
-  }
-}
+const BannerHeader = (props) => (
+  <div className={classnames("heavy_text", "section_header", "right_margin")}>
+    <p>{props.text}</p>
+  </div>
+)
 
-class BannerParagraphRight extends Component {
-  render() {
-    return (
-      <div className="shadowedBoxContainer">
-        <div className="bannerParagraphRight">
-          <img src="placeholder.png"></img>
-          <p>{this.props.text}</p>
-        </div>
-      </div>
-    );
-  }
-}
+const BannerParagraphLeft = (props) => (
+  <div className="shadowedBoxContainer">
+    <div className="bannerParagraphLeft">
+      <p>{props.text}</p>
+      <img src="placeholder.png"></img>
+    </div>
+  </div>
+)
 
-class Splash extends Component {
-  render() {
-    return (
-      <div>
-        <img className="splash" src="primary_splash.jpg"/>
-      </div>
-    );
-  }
-}
+const BannerParagraphRight = (props) => (
+  <div className="shadowedBoxContainer">
+    <div className="bannerParagraphRight">
+      <img src="placeholder.png"></img>
+      <p>{props.text}</p>
+    </div>
+  </div>
+)
+
+const Splash = (props) => (
+  <div>
+    <img className={classnames("splash", props.classes)} src={props.source}/>
+  </div>
+)
 
 $(window).on('scroll', function() {
   var y_scroll_pos = window.pageYOffset;
@@ -117,21 +89,22 @@ $(window).on('scroll', function() {
 });
 
 $(document).ready(function() {
-    console.log(document.getElementsByClassName("bar_item"))
   $('.first_tab').click(function(e) {
-    console.log('tick1');
-
+    $('html, body').animate( {
+      scrollTop: $(".welcome_splash").offset().top
+    }, 500);
   });
   $('.second_tab').click(function(e) {
-    //scroll to the top of the about section
-    var about_section = document.getElementById('about_section');
+    //scroll to the top of the about section in 1 second
     $('html, body').animate( {
-      scrollTop: $("#about_section").offset().top
-    }, 1000);
+      scrollTop: $(".about_section").offset().top
+    }, 750);
   });
   $('.third_tab').click(function(e) {
     //scroll to the top of the contact section
-    console.log('tick3');
+    $('html, body').animate( {
+      scrollTop: $(".say_hi_section").offset().top
+    }, 1000);
   });
 });
 export default App;
