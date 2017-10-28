@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+.App {
+}
+
+.right_margin {
+    margin-right: 8%;
+}
+
+.box_shadow {
+    box-shadow: 10px 10px 10px #000;
+}
+
+.bar_top {
+  background-color: white;
+  text-align: right;
+  height: 50px;
+  position: relative;
+}
+
+.bar_item {
+  display: inline-block;
+  margin-right: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: white;
+  color: #000;
+}
+
+.heavy_text {
+    font-size: 120%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.splash {
+  width: 100%;
+}
+
+.section_header {
+    font-size: 500%;
+    margin-top, margin-bottom: 0;
+    height: 184 px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.banner {
+  width: 100%;
+  margin-right: 10%;
+  height: 200px;
+  line-height: 200px;
+}
+
+.circle_crop {
+  height: 250px;
+  width: 250px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle_image {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  min-width: 100%;
+}
+
+.shadow {
+  box-shadow: 10px 10px 8px #adadad;
+}
+
+.inlined {
+  display: inline-block;
+}
+
+#rightMovingSlide {
+  transition: left 1s;
+  left: 0;
+}
+
+.bannerParagraphLeft p {
+  margin-left: 10%;
+  width: 60%;
+  display: inline-block;
+}
+
+.bannerParagraphLeft img {
+  max-width: 20%;
+  max-height: 20%;
+  vertical-align: top;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.bannerParagraphRight p {
+  margin-right: 10%;
+  width: 60%;
+  display: inline-block;
+}
+
+.bannerParagraphRight img {
+  max-width: 20%;
+  max-height: 20%;
+  vertical-align: top;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.shadowedBoxContainer {
+  padding: 16px;
+  border: 2px solid #999;
+  border-radius: 12px;
+  box-shadow: 10px 10px 8px #999;
+  width: 90%;
+  margin: 32px auto;
+  -webkit-transition: box-shadow .3s;
+}
+
+.shadowedBoxContainer:hover {
+  box-shadow: 3px 3px 4px #999;
+}
