@@ -3,6 +3,10 @@
 .App {
 }
 
+.slick_me {
+  width: 100%;
+}
+
 .right_margin {
     margin-right: 8%;
 }
@@ -12,7 +16,7 @@
 }
 
 .bar_top {
-  background-color: white;
+  background-color: #454872;
   text-align: right;
   height: 50px;
   position: relative;
@@ -20,14 +24,22 @@
 
 .bar_item {
   display: inline-block;
-  margin-right: 2%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 8%;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
   cursor: pointer;
-  padding: 5px 20px;
-  border-radius: 5px;
-  background-color: white;
-  color: #000;
+  background-color: #454872;
+  color: #fff;
+  -webkit-transition: background-color .5s;
+  -webkit-transition: color .5s;
+}
+
+.bar_item:hover {
+  background-color: #fff;
+  color: #454872;
 }
 
 .heavy_text {
@@ -61,13 +73,18 @@
   position: relative;
   border-radius: 50%;
   overflow: hidden;
+  display: inline-block;
 }
 
 .circle_image {
-  display: block;
   margin: 0 auto;
   height: 100%;
   min-width: 100%;
+}
+
+.content_box {
+  color: #fff;
+  background-color: #000;
 }
 
 .shadow {
